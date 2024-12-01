@@ -23,10 +23,10 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Grab Flex And Bison
-      run: curl -LO https://sourceforge.net/projects/winflexbison/files/win_flex_bison3-latest.zip -o ${{ runner.temp }}/win_flex_bison3-latest.zip
+      run: curl -o ${{ runner.temp }}/flex.zip -LO https://sourceforge.net/projects/winflexbison/files/win_flex_bison3-latest.zip 
 
     - name: Unpack exes so we can use them for cmake
-      run: 7z x ${{ runner.temp }}/win_flex_bison3-latest.zip -o${{ runner.temp }}/flex
+      run: 7z x ${{ runner.temp }}/flex.zip -o${{ runner.temp }}/flex
 
     - name: Configure CMake
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
